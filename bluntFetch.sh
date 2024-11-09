@@ -19,6 +19,8 @@ logo="
 "
 
 # OS Info
+user=$(whoami)
+sysName=$(uname -a | awk '{print $2}')
 os=$(hostnamectl | grep "Operating System" | awk -F ': ' '{print $2}')
 kernel=$(uname -r)
 shell=$(basename "$SHELL")
@@ -48,6 +50,10 @@ echo "$logo" | lolcat
 
 # Info in a column next to the logo
 # echo "=====================================================" | lolcat
+echo -en "\033[1m$user\033[0m" | lolcat
+echo -n "@"
+echo -e "\033[1m$sysName\033[0m" | lolcat
+echo "--------------"
 echo -en "\033[1mos\033[0m        : " | lolcat
 echo -n $os
 	if [ "$os" = "Arch Linux" ]; then
