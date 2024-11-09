@@ -23,7 +23,10 @@ os=$(hostnamectl | grep "Operating System" | awk -F ': ' '{print $2}')
 kernel=$(uname -r)
 shell=$(basename "$SHELL")
 term=$(echo $TERM | awk -F'-' '{print $2}')
-mem=$(free -m | awk '/Mem/ {print $3 "/" $2 " MB"}')
+mem=$(free -m | awk '/Mem/ {print $3 " / " $2 " MB"}')
+memUsed=$(free -m | awk '/Mem/ {print $3}')
+memTotal=$(free -m | awk '/Mem/ {print $2}')
+memPercentUsed=$((memUsed * 100 / memTotal))
 cpu_name=$(lscpu | grep "Model name" | awk -F': ' '{print $2}' | sed 's/^ *//;s/ *$//')
 cpu_freq=$(lscpu | grep "CPU max MHz" | awk -F': ' '{printf " %.1f GHz", $2/1000}')
 gpu=$(lspci | grep -i "vga" | awk '{print $12 $13 $14 $15}' | sed 's/\([a-zA-Z]\)\([0-9]\)/\1 \2/g' | sed 's/[[]//g; s/[]]//g')
@@ -57,7 +60,8 @@ echo $shell
 echo -en "\033[1mterm\033[0m      : " | lolcat
 echo $term
 echo -en "\033[1mmem\033[0m       : " | lolcat
-echo $mem
+echo -en "$mem "
+echo -e "(\033[1m$memPercentUsed%\033[0m)" | lolcat 
 echo -en "\033[1mcpu\033[0m       : " | lolcat
 echo -n $cpu_name
 echo -n " @ " | lolcat
