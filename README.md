@@ -1,2 +1,6 @@
 # bluntFetch
-My own fetch script for my own system.
+
+# version 1
+
+My own fetch script created for my own personal system.
+Feel free to use anywhere you'd like. :)
