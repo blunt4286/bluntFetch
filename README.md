@@ -8,4 +8,4 @@ Feel free to use anywhere you'd like. :)
 
 Preview:
 
-![ksnip_20241109(7)](https://github.com/user-attachments/assets/e0edef28-45c9-4da7-86fd-143dc959b305)
+![bluntFetch](https://github.com/user-attachments/assets/6a59fa02-0c22-4904-b042-bf8181a1b0a0)
