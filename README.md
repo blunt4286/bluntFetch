@@ -3,6 +3,7 @@
 # version 1
 
 My own fetch script created for my own personal system.
+Its probably unrefined...
 Feel free to use anywhere you'd like. :)
 
 Preview:
